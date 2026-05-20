@@ -1,0 +1,124 @@
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    color: #2e221b;
+    background-color: #f4ecd8;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width:fit-content;
+    justify-content: center;
+}
+
+div, main {
+    text-align: center;
+}
+
+#table {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    padding: 20px;
+    background-color: #e8dcc2eb;
+}
+
+#table  div {
+    display:inline-table;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    margin:0px;
+}
+
+.header {
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 10px 20px 10px;
+}
+
+input[type="email"] {
+    min-width: 220px;
+}
+
+button {
+    cursor: pointer;
+    width:100%;
+    padding: 6px;
+    color: #3b2f2f;
+}
+
+button[type="submit"] {
+    background-color: #c7b089;
+    font-weight: bold;
+    border: 1px solid #8f7d5c;
+    border-radius: 5px;
+    width:fit-content;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+button.available {
+    background-color: #d8ccb0;
+}
+
+button.booked {
+    background-color: #c98f7a;
+    color: #fffaf0;
+}
+
+button.booked_disabled {
+    cursor: default;
+    background-color: #c98f7a8f;
+    color: #464444c5;
+    pointer-events: none;
+}
+
+button.student_booked {
+    background-color: #c98f7a;
+    color: #3b3939;
+}
+
+button:hover {
+    border-color: #6e5d40;
+}
+
+button[type="submit"]:hover {
+    background-color: #c7b089dd;
+}
+
+button.available:hover {
+    background-color: #ddd0b1;
+}
+
+button.booked:hover {
+    background-color: #b67b67;
+}
+
+.information {
+    color: #1c8710;
+    font-weight: bold;
+    min-height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub_title {
+    color: #6a5e53;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.emailLine {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px;
+}
