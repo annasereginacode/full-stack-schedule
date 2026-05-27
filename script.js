@@ -171,7 +171,7 @@ function data_feed(data) {
 
 function sendDataToServer(client_schedule) {
     //console.log("Start sending data to server...");
-    fetch('/schedule-data', {
+    fetch('/schedule', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -252,7 +252,7 @@ scheduleForm.addEventListener("submit", function(event) {
 });
 
 
-fetch('/schedule-data')
+fetch('/schedule')
 .then(response => {
     if (!response.ok) throw new Error(`Server error: ${response.status} ${response.statusText}`);
     return response.json();

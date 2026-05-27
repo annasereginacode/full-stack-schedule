@@ -6,7 +6,16 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.json());
 
+const fs = require("fs");
+const path = require("path");
+const schedulePath = path.join(__dirname, "schedule.json");
+
 let schedule = [];
+if (fs.existsSync(schedulePath)) {
+    schedule = JSON.parse(fs.readFileSync(schedulePath, "utf8"));
+} else {
+    fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 2));
+}
 
 const times = [
     "10:00 - 10:30",
@@ -42,13 +51,14 @@ const days = [
 ];
 
 
-app.get('/schedule-data', (req, res) => {
+app.get('/schedule', (req, res) => {
     res.json({schedule: schedule, times: times, days: days});
 });
 
-app.post('/schedule-data', (req, res) => {
+app.post('/schedule', (req, res) => {
     const {client_schedule} = req.body; // the same as client_schedule = req.body.client_schedule
     schedule = client_schedule;
+    fs.writeFileSync(schedulePath, JSON.stringify(schedule, null, 2));
     console.log("Schedule is saved!");
     //res.json({message: "Your schedule saved successfully!"})
     res.json({schedule: schedule, times: times, days: days});
